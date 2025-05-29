@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import Button from '../components/Button';
 import ScreenWrapper from '../components/ScreenWrapper'; // <-- Correction ici
 import { theme } from '../constants/theme';
 import { hp, wp } from '../helpers/common';
@@ -14,8 +15,16 @@ const welcome = () => {
 
             {/* le text du font premiere page */}
             <View style={{ gap: 20 }}>
-                <Text style={styles.punchline}>Bienvenue dans l'application</Text>
+                <Text style={styles.title}>Yole Africa</Text>
+                <Text style={styles.punchline}>Ne restez plus dans l'ignorance. Yole Africa vous connecte directement aux enjeux des droits humains avec des alertes instantanées. Informez-vous, partagez et agissez pour un continent où la justice prévaut</Text>
 
+            </View>
+            {/* footer */}
+            <View style={styles.footer}>
+                <Button
+                    title="Bienvenue"
+                    buttonStyle={{ marginHorizontal: wp(3) }} onPress={() => { }}
+                />
             </View>
 
         </ScreenWrapper>
@@ -41,7 +50,13 @@ const styles = StyleSheet.create({
         color: theme.colors.text,
         fontSize: hp(4),
         textAlign: 'center',
-        fontWeight: theme.fonts.extraBold,
+        fontWeight: theme.fonts.extraBold
+    },
+    punchline: {
+        color: theme.colors.text,
+        fontSize: hp(1.7),
+        textAlign: 'center',
+        marginTop: hp(2),
     },
 
 });
