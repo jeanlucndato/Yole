@@ -58,5 +58,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: hp(2),
     },
+    footer: {
+        gap: 30,
+        width: '100%',
+    }
 
 });
