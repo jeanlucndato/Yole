@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text } from 'react-native'
+import { View } from 'react-native-web'
 import { theme } from '../constants/theme'
 import { hp } from '../helpers/common'
 import Loading from './Loading'
@@ -16,19 +17,19 @@ const Button = ({
         shadowColor: theme.colors.dark,
         shadowOffset: {
             width: 0,
-            height: 10,
+            height: 10
         },
         shadowOpacity: 0.2,
         shadowRadius: 8,
-        elevation: 4,
+        elevation: 4
     }
 
 
     if (loading) {
         return (
-            <view style={[styles.button, buttonStyle, { backgroundColor: 'white' }]} >
+            <View style={[styles.button, buttonStyle, { backgroundColor: 'white' }]} >
                 <Loading />
-            </view >
+            </View >
         )
     }
 

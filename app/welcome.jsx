@@ -1,11 +1,13 @@
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import ScreenWrapper from '../components/ScreenWrapper'; // <-- Correction ici
 import { theme } from '../constants/theme';
 import { hp, wp } from '../helpers/common';
 
 const welcome = () => {
+    const router = useRouter();
     return (
         <ScreenWrapper bg="white">
             <StatusBar style="dark" />
@@ -23,11 +25,18 @@ const welcome = () => {
             <View style={styles.footer}>
                 <Button
                     title="Bienvenue"
-                    buttonStyle={{ marginHorizontal: wp(3) }} onPress={() => { }}
+                    buttonStyle={{ marginHorizontal: wp(3) }} onPress={() => router.push('login')}
                 />
             </View>
+            <View style={styles.bottomContainer}>
+                <Text style={styles.loginText}>Déjà membre ? <Text style={{ color: theme.colors.primary }}>Connectez-vous</Text></Text>
+                <Pressable onPress={() => router.push('signUp')}>
+                    <Text style={[styles.loginText, { colors: theme.colors.primaryDark, fontWeight: theme.semibold }]}>Mot de passe oublié ?</Text>
+                </Pressable>
 
-        </ScreenWrapper>
+            </View>
+
+        </ScreenWrapper >
     )
 }
 
@@ -61,6 +70,18 @@ const styles = StyleSheet.create({
     footer: {
         gap: 30,
         width: '100%',
-    }
+    },
+    bottomTextContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 5,
+    },
+    loginText: {
+        color: theme.colors.text,
+        fontSize: hp(1.8),
+        textAlign: 'center',
+        marginTop: hp(2),
+    },
 
 });
